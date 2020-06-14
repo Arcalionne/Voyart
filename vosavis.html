@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="vosavis.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>V O Y A R T</title>
+
+  </head>
+
+  <header>
+
+    <div class="title">
+      <h1>V O Y A R T</h1>
+      <p>Voyager en image.</p>
+    </div>
+
+    <div class="header">
+
+      <ul>
+        <li><a href="Map.html" title="Notre projet" >Les photos </a></li></li>
+        <li><a href="Photographe.html" title="Les photographes" >Nos photographes</a></li>
+        <li><a href="page_accueil.html" title="Avis" >Accueil</a></li>
+        <li> <a href="quisommesnous.html" title="Contact" >Notre équipe</a></li>
+      </ul>
+    </div>
+  </header>
+  <body>
+    <div id="container">
+      <main>
+      </main>
+      <form action="#">
+        <h3>Ajouter un avis</h3>
+        <input type="text" id="title" placeholder="Titre">
+        <br>
+        <textarea id="content"></textarea>
+        <button onclick="addNewArticle()">
+          Valider
+        </button>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  const lorem = 'Les photos sont raiment magnifiques on adore voyager avec vous, la photo cest tout un art merci de nous avoir fait visiter des villes Merci ! Lucy 20 ans'
+  const articles = [
+    {
+      title: '1er avis' ,
+      content: lorem
+    },
+    {
+      title: '2e avis',
+      content: lorem
+    }
+  ]
+
+  for (const article of articles) {
+    createArticle(article.title, article.content)
+  }
+
+  function addNewArticle () {
+    const title = document.querySelector('#title')
+    const content = document.querySelector('#content')
+
+    createArticle(title.value, content.value)
+  }
+  function createArticle (title, content) {
+    const h2 = document.createElement('h2')
+    const p = document.createElement('p')
+    const article = document.createElement('article')
+
+    h2.textContent = title
+    p.textContent = content
+
+    article.appendChild(h2)
+    article.appendChild(p)
+
+    article.addEventListener('click', function () {
+      alert(title)
+    })
+
+    const main = document.querySelector('main')
+    main.appendChild(article)
+  }
+</script>
+<br>
+    <br>
+    <br>
+    <br>
+
+    <div class="footer">
+      <img src="logo3.png" alt="Logo" >
+    </div>
+  </body>
+</html>
+
+
